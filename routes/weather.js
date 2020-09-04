@@ -23,6 +23,15 @@ router.get("/", (request, res, next) => {
 
 */
 
+//pasos para subir a github
+
+/*
+1- git status ---> ver archivos modificados
+2- git add (nombre del archivo) agregar archivos que vas a subir
+3- git commit -m poner mensaje para tu cambio (commit)
+4- git push origin nombre de la rama subir el cambio a repositorio de github
+*/
+
 router.post("/by-city", function (req, res, next) {
 
     const apiKey = "73c70ab6fb409b92f403de9291402e9b";
