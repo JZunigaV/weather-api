@@ -55,5 +55,24 @@ router.post("/by-city", function (req, res, next) {
 
 });
 
+router.post("/by-coordinates", function (req, res, next) {
+    // volví a definir la apiKey, aunque no sé si es necesario ya que arriba está definida, pero al cerrar el ciclo con ";" creo que ya nose define en esta parte 
+    const apiKey = "73c70ab6fb409b92f403de9291402e9b";
+    // defini lat y lon de la misma forma que se definio city
+    let lat = req.body.lat;
+    let lon = req.body.lon;
+    // volví a definir un url, aunque no sé si deba de cambiar el nombre
+    let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+    //Defino el error y la respuesta de forma similar que en el ejemplo del post by-city
+    request(url,function(err,response,body) {
+        if(err) {
+            console.log("Hubo un error");
+        } else {
+            res.send(JSON.parse(body));
+        }
+    });
+});
+
 
 module.exports = router;
